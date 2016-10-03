@@ -3,7 +3,6 @@ title: Markdown Stress Test
 layout: post.pug
 collection: posts
 date: 2016-10-1
-# draft: true
 ---
 > dear athetits.... if ___GOD___ dont exists how me a dog learned english?
 >

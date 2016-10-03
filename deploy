@@ -1,0 +1,28 @@
+#!/usr/local/bin/node
+
+const {ADDRESS} = require('./config.js');
+
+const exclusions = [
+  '.git',
+  'node_modules',
+  '*.log',
+  '*.swp',
+  'deploy'
+];
+
+const colors = require('colors');
+const rsync = require('rsync');
+
+const R = new rsync()
+  .shell('ssh')
+  .flags('avz')
+  .exclude(exclusions)
+  .source('.')
+  .destination(`root@${ADDRESS}:~`);
+
+R.execute(function(error, code, cmd) {
+  if (error) {
+    throw new Error(`${code}: ${error}`.red);
+  }
+  console.log('Sync complete!'.green);
+});

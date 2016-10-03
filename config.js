@@ -1,4 +1,4 @@
-const defines = {
+exports.DEFINES = {
   blog: {
     title: 'Things I\'ve Said, Unfortunately',
     description: 'Software maker. Word writer. Game player. Beverage drinker.',
@@ -29,4 +29,11 @@ const defines = {
   }
 };
 
-exports.defines = defines;
+exports.PORT = 1337;
+
+exports.PATHS = {
+  'source': 'src',
+  'destination': 'public'
+};
+
+exports.ADDRESS = '192.241.225.193';

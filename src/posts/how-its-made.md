@@ -3,6 +3,7 @@ title: A Journey Through Metalsmith
 layout: post.pug
 collection: posts
 date: 2016-10-2
+draft: true
 ---
 
-I'm not the type to do a victory lap.
+I wanted to make my own blog.
