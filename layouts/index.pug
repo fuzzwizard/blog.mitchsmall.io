@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+  each post in posts
+    article.front-page
+      header
+        h1= post.title
+
+        time
+          a.permalink(href=post.path)
+            = moment(post.date).fromNow()
+
+      section
+        != post.snippet
+
+      footer
+        a.permalink(href=post.path)
+          | Read more

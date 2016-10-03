@@ -1,0 +1,18 @@
+doctype html
+head
+  title= (title ? title + ' | ' : '') + blog.title
+  link(rel='stylesheet', href=normalize)
+  link(rel='stylesheet', href=fontawesome)
+  link(rel='stylesheet', href=highlightjs)
+
+  link(rel='stylesheet', href='/styles.css')
+  script(src='/main.js', async)
+body
+  header
+    include _header
+
+  main
+    block content
+
+  footer
+    include _footer

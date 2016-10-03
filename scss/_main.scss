@@ -1,0 +1,35 @@
+main {
+  padding: 4vh 5vw;
+  background-color: $MOCCASIN;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  & > article {
+    z-index: 1;
+    margin: 1rem;
+    padding: 1px 1rem;
+    background-color: white;
+    box-shadow: 0.5rem 0.5rem 2px darken($MOCCASIN, 8%);
+    max-width: 775px;
+    width: 95%;
+
+    header {
+      padding-left: 1em;
+    }
+
+    time {
+      padding-left: 1em;
+    }
+
+    section {
+      padding-left: 1.33em;
+      padding-right: 1.33em;
+    }
+
+    footer {
+      text-align: right;
+      margin: 0.75em;
+    }
+  }
+}

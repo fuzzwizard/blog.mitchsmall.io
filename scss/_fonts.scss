@@ -1,0 +1,17 @@
+@import 'https://fonts.googleapis.com/css?family=Bungee+Shade|Anonymous+Pro|Raleway:300,300i,500';
+
+$LOGO-FONT: 'Bungee Shade';
+$CODE-FONT: 'Anonymous Pro', monospace;
+$SANS-FONT: 'Raleway', Helvetica, sans-serif;
+
+body {
+  font-family: $SANS-FONT;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: $SANS-FONT;
+}
+
+code {
+  font-family: $CODE-FONT;
+}

@@ -1,0 +1,8 @@
+nav
+  for page in pages
+    a(href=`/${page.path}`)= page.title.toLowerCase()
+  for link in widget
+    a(href=`${link.path}`)= link.title.toLowerCase()
+
+h1
+  a(href="/") Mitch Small

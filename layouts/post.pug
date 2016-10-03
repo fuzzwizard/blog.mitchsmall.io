@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+  article
+    header
+      h1= title
+      time
+        a(href=permalink)
+          = moment(date).fromNow()
+
+    section
+      != contents
+
+    footer
+      if medium
+        a(href=medium.link)
+          | Cross-posed on Medium
+          time= moment(medium.date).fromNow()
+      nav
+        // != console.log(posts)
+        a Next
+        a Prev

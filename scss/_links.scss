@@ -1,0 +1,7 @@
+a {
+  color: $DARK-PINK;
+
+  &:hover {
+    color: lighten($DARK-PINK, 20%);
+  }
+}

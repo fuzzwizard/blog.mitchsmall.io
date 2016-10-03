@@ -1,0 +1,15 @@
+@import 'palette';
+@import 'fonts';
+
+@import 'header';
+@import 'footer';
+
+@import 'main';
+@import 'typography';
+@import 'links';
+@import 'content';
+
+body {
+  overflow-x: hidden;
+  background-color: $CORAL;
+}

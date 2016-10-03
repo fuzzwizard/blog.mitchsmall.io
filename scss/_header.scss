@@ -1,0 +1,40 @@
+body > header {
+  background-color: $CORAL;
+  padding: 5px 15px;
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    color: white;
+    display: inline-block;
+    width: auto;
+    font-family: $LOGO-FONT;
+  }
+
+  nav {
+    width: 100%;
+    display: inline-block;
+    text-align: right;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    list-style-type: none;
+
+    a {
+      margin: 0 15px;
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:visited {
+      color: white;
+    }
+
+    &:hover {
+      color: mix($CORAL, white, 20%);
+    }
+  }
+}

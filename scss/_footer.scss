@@ -1,0 +1,23 @@
+body > footer {
+  color: white;
+  text-align: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:visited {
+      color: white;
+    }
+
+    &:hover {
+      color: mix($CORAL, white, 20%);
+    }
+  }
+
+  small {
+    padding: 10px;
+    display: inline-block;
+    align: center;
+  }
+}
