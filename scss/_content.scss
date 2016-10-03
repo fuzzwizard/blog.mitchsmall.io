@@ -1,31 +1,29 @@
-section {
-  & > blockquote {
-    quotes: none;
-    font-style: italic;
-    color: $DARK-PINK;
-    font-size: 2.25rem;
-    position: relative;
+section > blockquote {
+  quotes: none;
+  font-style: italic;
+  color: $DARK-PINK;
+  font-size: 2.25rem;
+  position: relative;
+
+  &::before {
+    display: block;
+    font-style: none;
+    z-index: -1;
+    font-size: 7rem;
+    color: #777;
+    opacity: 0.3;
+    top: -0.25em;
+    left: -0.33em;
+    position: absolute;
+    content: '“';
+  }
+
+  cite {
+    color: #777;
+    font-size: 1.25rem;
 
     &::before {
-      display: block;
-      font-style: none;
-      z-index: -1;
-      font-size: 7rem;
-      color: #777;
-      opacity: 0.3;
-      top: -0.25em;
-      left: -0.33em;
-      position: absolute;
-      content: '“';
-    }
-
-    cite {
-      color: #777;
-      font-size: 1.25rem;
-
-      &::before {
-        content: '–';
-      }
+      content: '–';
     }
   }
 }
