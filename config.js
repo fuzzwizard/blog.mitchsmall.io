@@ -29,7 +29,7 @@ exports.DEFINES = {
   }
 };
 
-exports.PORT = 1337;
+exports.PORT = 8080;
 
 exports.PATHS = {
   'source': 'src',
