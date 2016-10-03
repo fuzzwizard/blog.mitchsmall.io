@@ -4,9 +4,9 @@ block content
   article
     header
       h1= title
-      time
+
+      time(data-date=date)
         a(href=permalink)
-          = moment(date).fromNow()
 
     section
       != contents
@@ -15,8 +15,10 @@ block content
       if medium
         a(href=medium.link)
           | Cross-posed on Medium
-          time= moment(medium.date).fromNow()
+          time(data-date=medium.date)
       nav
-        // != console.log(posts)
-        a Next
-        a Prev
+        //- // != console.log(posts)
+        if posts.next
+          a(href=posts.next.path) Next
+        if posts.prev
+          a(href=posts.prev.path) Prev

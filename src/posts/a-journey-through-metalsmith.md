@@ -1,8 +1,8 @@
 ---
-title: Page Template
-date: 10-2-2016
-layout: page.pug
-collection: pages
+title: A Journey Through Metalsmith
+layout: post.pug
+collection: posts
+date: 2016-10-2
 ---
 
-Long time comin'.
+I'm not the type to do a victory lap.

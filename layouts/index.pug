@@ -6,9 +6,8 @@ block content
       header
         h1= post.title
 
-        time
-          a.permalink(href=post.path)
-            = moment(post.date).fromNow()
+        time(data-date=post.date)
+          a.permalink(href=post.path,)
 
       section
         != post.snippet

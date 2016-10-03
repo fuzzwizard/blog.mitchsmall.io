@@ -12,22 +12,10 @@ const define = require('metalsmith-define');
 const babel = require('metalsmith-babel');
 const sass = require('metalsmith-sass');
 
+const {defines} = require('./config.js');
+
 metalsmith(__dirname)
-  .use(define({
-    blog: {
-      title: 'Things I\'ve Said, Unfortunately',
-      description: 'Software maker. Word writer. Game player. Beverage drinker.',
-      url: 'http://blog.mitchsmall.io'
-    },
-    widget: [
-      { title: 'github', path: 'http://.github.com/fuzzwizard'},
-      { title: 'portfolio', path: 'http://mitchsmall.io'}
-    ],
-    highlightjs: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/darcula.min.css',
-    fontawesome: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
-    normalize: 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css',
-    moment: require('moment')
-  }))
+  .use(define(defines))
   .use(sass({
     outputStyle: 'expanded',
     includePaths: ['scss']

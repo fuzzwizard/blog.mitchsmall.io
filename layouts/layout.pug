@@ -1,9 +1,11 @@
 doctype html
 head
   title= (title ? title + ' | ' : '') + blog.title
-  link(rel='stylesheet', href=normalize)
-  link(rel='stylesheet', href=fontawesome)
-  link(rel='stylesheet', href=highlightjs)
+  link(rel='stylesheet', href=CDN.normalize.url)
+  link(rel='stylesheet', href=CDN.highlightjs.url)
+
+  script(src=CDN.jquery.url, integrity=CDN.jquery.integrity, crossorigin='anonymous')
+  script(src=CDN.moment.url, integrity=CDN.moment.integrity, crossorigin='anonymous')
 
   link(rel='stylesheet', href='/styles.css')
   script(src='/main.js', async)
