@@ -9,7 +9,9 @@ const exclusions = [
   'node_modules',
   '*.log',
   '*.swp',
-  'deploy'
+  'deploy',
+  'config.*',
+  'markdown-stress-test'
 ];
 
 const R = new rsync()
