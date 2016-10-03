@@ -8,6 +8,7 @@
     "prod-serve": "node server.js ./public/",
     "clean": "rm -rf public",
     "start": "npm run watch & npm run dev-serve",
+    "deploy": "npm run build && ./deploy",
     "production": "npm run clean && npm run prod-serve"
   },
   "devDependencies": {

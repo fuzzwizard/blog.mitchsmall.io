@@ -27,7 +27,7 @@ app.get('/:content/:postname', (req, res) => {
 const listenOn =
   process.env.PORT || PORT || 8080;
 
-const address = ARGS[0] === '--production'
+const address = ARGS[0] === '--local'
   ? ADDRESS
   : '127.0.0.1';
 
