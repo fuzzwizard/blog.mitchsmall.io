@@ -1,6 +1,8 @@
 #!/usr/local/bin/node
-
 const {ADDRESS} = require('./config.js');
+
+const colors = require('colors');
+const rsync = require('rsync');
 
 const exclusions = [
   '.git',
@@ -9,9 +11,6 @@ const exclusions = [
   '*.swp',
   'deploy'
 ];
-
-const colors = require('colors');
-const rsync = require('rsync');
 
 const R = new rsync()
   .shell('ssh')

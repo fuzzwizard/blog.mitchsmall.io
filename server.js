@@ -31,6 +31,6 @@ const address = ARGS[0] === '--production'
   ? ADDRESS
   : '127.0.0.1';
 
-app.listen(listenOn, address, function() {
-  console.log(`Listening on ${listenOn}`.green);
-});
+app.listen(listenOn, address);
+
+console.log(`Server listening on ${listenOn}`.green);
