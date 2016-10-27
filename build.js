@@ -3,17 +3,17 @@ const ARGS = process.argv.slice(2);
 
 const Metalsmith = require('metalsmith');
 
-const htmlMinifier  = require('metalsmith-html-minifier');
-const collections   = require('metalsmith-collections');
-const permalinks    = require('metalsmith-permalinks');
-const snippets      = require('metalsmith-snippet');
-const markdown      = require('metalsmith-markdown');
-const metallic      = require('metalsmith-metallic');
-const layouts       = require('metalsmith-layouts');
-const drafts        = require('metalsmith-drafts');
-const define        = require('metalsmith-define');
-const babel         = require('metalsmith-babel');
-const sass          = require('metalsmith-sass');
+const htmlMinifier = require('metalsmith-html-minifier');
+const collections  = require('metalsmith-collections');
+const permalinks   = require('metalsmith-permalinks');
+const snippets     = require('metalsmith-snippet');
+const markdown     = require('metalsmith-markdown');
+const metallic     = require('metalsmith-metallic');
+const layouts      = require('metalsmith-layouts');
+const drafts       = require('metalsmith-drafts');
+const define       = require('metalsmith-define');
+const babel        = require('metalsmith-babel');
+const sass         = require('metalsmith-sass');
 
 const colors  = require('colors');
 const watch   = require('glob-watcher');
