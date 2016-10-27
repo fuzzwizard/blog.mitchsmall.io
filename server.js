@@ -21,6 +21,8 @@ app.get('/:content/:postname', (req, res) => {
 
   if (content === 'pages' || content === 'posts') {
     res.sendFile(path.join(DIR, content, req.params.postname));
+  } else {
+    res.send(404);
   }
 });
 
@@ -31,6 +33,6 @@ const address = ARGS[0] === '--local'
   ? ADDRESS
   : '127.0.0.1';
 
-app.listen(listenOn, address);
-
-console.log(`Server listening on ${listenOn}`.green);
+app.listen(listenOn, address, function() {
+  console.log(`Server listening on ${listenOn}`.green);
+});
