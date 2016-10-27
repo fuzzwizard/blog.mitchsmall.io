@@ -13,7 +13,7 @@ app.use(express.static(DIR));
 app.use('/img', express.static(DIR + '/img'));
 
 app.use((req, res, next) => {
-  console.log(`Request recieved on route ${req.url} with metho ${req.method}`);
+  console.log(`Request recieved on route ${req.url} with method ${req.method}`.blue);
   next();
 });
 

@@ -6,7 +6,7 @@ date: 2016-10-3
 ---
 So it turns out I'm a fool.
 
-When confronted with the option between quickly deploying a good-looking, ready-made blogging platform and struggling to develop a new toolchain and deploy my own server, I chose the latter. On the bright side, now I know I can do it. On the dim side, this took me 4 weeks.
+When confronted with the option between quickly deploying a good-looking, ready-made blogging platform and struggling to develop a new toolchain and deploy my own server, I chose the latter. On the bright side, now I know I can do it. On the dim side, this took me entirely too long.
 
 ## The Hard-Won Toolchain
 
