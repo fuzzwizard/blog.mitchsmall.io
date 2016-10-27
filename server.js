@@ -34,10 +34,6 @@ app.get('/:content/:postname', (req, res) => {
 const listenOn =
   process.env.PORT || PORT || 8080;
 
-const address = ARGS[0] === '--local'
-  ? ADDRESS
-  : '127.0.0.1';
-
-app.listen(listenOn, address, function() {
+app.listen(listenOn, '0.0.0.0', function() {
   console.log(`Server listening on ${listenOn}`.green);
 });
