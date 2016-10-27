@@ -8,15 +8,16 @@ So it turns out I'm a fool.
 
 When confronted with the option between quickly deploying a good-looking, ready-made blogging platform and struggling to develop a new toolchain and deploy my own server, I chose the latter. On the bright side, now I know I can do it. On the dim side, this took me 4 weeks.
 
-# The Hard-Won Toolchain
+## The Hard-Won Toolchain
 
-## Metalsmith
+### Metalsmith
 
 The static site generator at it's heart is Metalsmith, a lightweight file processing system built in node. You'll often see it billed as a static site generator but it can do a lot more considering the plugin ecosystem behind it.
 
 I struggled the most with maintaining a consistent file structure, as some plugins preferred the root directory over the source directory for where they sourced their data. Here's the structure I ended up employing:
 
-```.
+```bash
+.
 ├── layouts
 ├── scss
 └── src
@@ -42,23 +43,23 @@ And here's my relevant plugins:
 
 Other than collections (which organizes my posts and pages into data structures that I can access within my templates), define (which handles my metadata, including CDNs), permalinks and snippets, these have more to do with how I style and structure my pages.
 
-## Templating
+### Templating
 
-For templating, I chose [Pug](), which was frankly a leap of faith. Back when it was called Jade, I'd given it a glance but nothing that would actually mean  that I 'knew' it. As it turns out, though, it's just HTML with the boring stuff removed, so it was no problem writing simple, semantic templates.
+For templating, I chose [Pug](pugjs.org), which was frankly a leap of faith. Back when it was called Jade, I'd given it a glance but nothing that would actually mean  that I 'knew' it. As it turns out, though, it's just HTML with the boring stuff removed, so it was no problem writing simple, semantic templates.
 
-## Styling
+### Styling
 
 Pretty straightforward: I'm using SCSS, processed through node-sass. Quite unlike Pug, I have a lot of experience with it so it. Rather than switching to Sass syntax to align with my choice of templating language
 
-## Markdown
+### Markdown
 
 Because writing HTML is for squares. All posts are written in markdown and automatically processed through the Metalsmith pipeline.
 
-## Post-processing
+### Post-processing
 
 Babel is entirely superfluous at the given moment, since I've done next to no scripting for this blog other than rendering timestamps human-readable, but it's there. Metallic is here for syntax highlighting, and HTML Minifier does what it says on the tin.
 
-## Server, Deployment and Development
+### Server, Deployment and Development
 
 I wrote a quick server (shoutout to Jon Deng's [article on the subject](https://medium.com/jondengdevelops/deploy-your-front-end-app-in-20-lines-of-code-24be44f8b51) for helping me realize how easy it is) and an node-wrapped rsync script to deploy it to my ubuntu droplet on [DigitalOcean](https://www.digitalocean.com/).
 

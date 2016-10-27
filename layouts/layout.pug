@@ -1,11 +1,21 @@
 doctype html
+html(xmlns="http://www.w3.org/1999/xhtml",
+     xmlns:fb="http://ogp.me/ns/fb#")
 head
-  title= (title ? title + ' | ' : '') + blog.title
+  title= (title ? title + ' | ' : '') + blog.title + ' '
+
+  meta(name='description' content=blog.description)
+  meta(property='og:image', content='/favicon.ico')
+
   link(rel='stylesheet', href=CDN.normalize.url)
   link(rel='stylesheet', href=CDN.highlightjs.url)
 
-  script(src=CDN.jquery.url, integrity=CDN.jquery.integrity, crossorigin='anonymous')
-  script(src=CDN.moment.url, integrity=CDN.moment.integrity, crossorigin='anonymous')
+  script(src=CDN.jquery.url,
+         integrity=CDN.jquery.integrity,
+         crossorigin='anonymous')
+  script(src=CDN.moment.url,
+         integrity=CDN.moment.integrity,
+         crossorigin='anonymous')
 
   link(rel='stylesheet', href='/styles.css')
   script(src='/main.js', async)
