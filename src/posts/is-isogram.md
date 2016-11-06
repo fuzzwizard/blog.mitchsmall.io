@@ -202,5 +202,4 @@ const isIsogram = string => {
 
 // And uglifed
 i=(s,c)=>(c=s.split('').reduce((o,c)=>o[c]?o[c]++&&o:o[c]=1&&o,{}),Object.keys(c).reduce((p,d)=>p||c[d]>1?false:true,true))
-
 ```
