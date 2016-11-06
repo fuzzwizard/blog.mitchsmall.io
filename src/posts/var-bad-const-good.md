@@ -1,13 +1,12 @@
 ---
-title: Friends Don't Let Friends Write `var`
+title: Explaining Const and Let
 layout: post.pug
 collection: posts
-date:
+date: 2016-11-6
 draft: true
 ---
 
-When I was first confronted by the expansive (and frankly overwhelming) featureset of ES6, I saw one change in particular as the most fundamental: `const` and `let`.
-
+When I was first confronted by the expansive (and frankly overwhelming) featureset of ES6, I saw one change in particular as the most fundamental: `const` and `let`. `var` was no longer the only keyword I needed to know to make my variables real. I was at once struck with a great bafflement and a yearning -- a yearning to know _why_.
 
 # How they work
 
@@ -35,22 +34,43 @@ This makes JavaScript more teachable, by making it possible to footnote what was
 
 For existing JavaScript devs, the gains here are little less concrete. Can you forget about hoisting? Not if you're working with legacy code or eschewing function literals (the `function` keyword has its own flavor of hoisting). However, there are other features present in `const` and `let`.
 
-### Let There Be Shadowing
+### Let There Be Blocks
 
 `let` seems pretty much interchangable with `var`, sans the hoisting.
 
 ```javascript
 console.log(a) // Uncaught Reference Error: a is not defined
 let a = 0;
+
 let b = 0;
 b += 1; // b is now 1
 ```
 
-However, there's another key difference: `let` obeys block scoping. 
+However, there's another key difference: `let` obeys block scoping. Consider the following:
+
+```javascript
+var a = 0;
+if (true) {
+  var a = 1;
+}
+console.log(a); // logs 1
+```
+
+In this case, the `var a` at line 3 is accessing the same variable as declared on line 1. These variables exist in the same namespace because they are not block scoped. However, if one were to use `let`:
+
+```javascript
+let a = 0;
+if (true) {
+  let a = 1;
+}
+console.log(a); // logs 0
+```
+
+The `let a` defined in the `if` block is cordoned off from the `let a` outside of it. Let allows you to keep your variable declarations from cross contaminating other sections of code. `const` shares this behaviour, but with one major difference. 
 
 ### The Mutability Mombo
 
-However, variables declared with `const` have an _immutable_ binding. They cannot be reassigned.
+Variables declared with `const` have an _immutable_ binding. They cannot be reassigned.
 
 ```javascript
 const a = 1;
@@ -64,7 +84,7 @@ const a = 1;
 a += 1; // Uncaught TypeError: Assignment to constant variable.
 ``` 
 
-However, objects declared with `const` can still be modified:
+However, objects declared with `const` can still be modified (because JavaScript needed another inconsistency, naturally):
 
 ```javascript
 const o = {};
@@ -72,12 +92,12 @@ o.field = 'value'; // Works just fine!
 o = {}; // You guessed it: Uncaught TypeError: Assignment to constant variable.
 ```
 
-So why is this useful?
+# Which Should I Use?
 
+I've seen some claims floating around that `const` assists with runtime engines that utilize just-in-time compilation, but I haven't stumbled accross any benchmarks that support that its a substantial difference at the end of the day.
 
-# That ol' bugbear: Performance
+Personally, I opt for `const` over `let` for another reason: I'd rather avoid adding more mutable state to my program than necessary. Defaulting to `const` forces me to make a conscious decision as to whether or not a given variable should ever change. 
 
+Granted, the object modification clause confounds that. To which I say: close enough. 👍
 
-
-
-I'd argue that the dust has settled around ES6's landing. Compatibility is [wide-reaching](http://kangax.github.io/compat-table/es6/), both with browsers and the newly minted Node LTS (as of this writing, that's v6.9.1.).
+That said, now that the dust has mostly settled around ES6's landing (Compatibility is [wide-reaching](http://kangax.github.io/compat-table/es6/), both with browsers and the newly minted Node LTS), I'd recommend embracing these binding keywords -- whichever one you prefer.

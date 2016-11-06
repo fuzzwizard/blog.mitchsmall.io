@@ -9,11 +9,16 @@ Say you're given a coding challenge:
 
 > Determine whether a given word (or string) is an isogram using JavasScript. An isogram is a word without duplicate letters.
 
-In the scope of technical challenges, this is one of the simpler ones im my opinion because the algorithim doesn't stray far from the realm of simple human reasoning:
+The algorithim I'd use here doesn't stray far from the realm of simple human reasoning:
 
-> Go through the letters. If you haven't seen a letter before, indicate that you've seen it. If you happen upon any letter twice, then it's not an isogram. Otherwise, it's an isogram.
+* Go through the letters. 
+* If you haven't seen a letter before... 
+  * ...indicate that you've seen it. 
+* If you happen upon any letter twice... 
+  * ...then it's not an isogram.  
+* Otherwise, it's an isogram.
 
-So of course you'd write something like this:
+So of course one would write something like this:
 
 ```javascript
 i=s=>s.split('').reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
@@ -21,7 +26,7 @@ i=s=>s.split('').reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
 
 Just kidding. But we can get here!
 
-Here's a human readable version of that algorithim, done in an imperitive style with an emphasis of mimicking the proceedures of the above:
+Here's a human readable version of that algorithim:
 
 ```javascript
 function isIsogram(string) {
@@ -45,13 +50,13 @@ The proceedure of this is great, truth be told. It works in linear time (as it s
 
 This is code I would feel comfortable writing in a team setting, where other people have to understand my proceedure.
 
-But this article is about making it *less* readable. For funsies! So we'll start trasforming this puppy.
+But this article is about making it _less_ readable. For funsies! So we'll start trasforming this puppy.
 
 ### First step: target for loops
 
 For and while loops of all kinds are easy to inline using JavasScript's native array methods. And if we're looking to gather a single value from a list, `reduce` does just that.
 
-*For the uninitiated:* Reduce iterates over the array you called it on, passing along a 'memory' variable of sorts. Usually, the memory variable is the first item of the array, but if you pass in a second arguement to reduce, that item becomes the initial memory. 
+__For the uninitiated:__ Reduce iterates over the array you called it on, passing along a 'memory' variable of sorts. Usually, the memory variable is the first item of the array, but if you pass in a second arguement to reduce, that item becomes the initial memory. 
 
 Here I've transcribed our algorithim from the previous imperitive implementation to one that takes advantage of a first-order function, with couple key differences:
 
@@ -99,7 +104,7 @@ Again, no major changes in speed. But it sets us up for compression once more. S
 
 Ternary operations are the closest thing to an expression conditional that JavasScript provides us. They're also needlessly cryptic and wonderfully terse.
 
-*For the uninitiated:* Ternary operators follow this form:
+__For the uninitiated:__ Ternary operators follow this form:
 
 ```javascript
 condition ? returned if condition is true : returned if false
@@ -124,7 +129,7 @@ Wait, where'd that `&&` come from?
 
 I fibbed earlier. There's another set of expressive conditional that JavasScript provides us: Bitwise operators. And since the ternary operator expects two expressions to follow the `?`, we needed another way to make our assignment to `memory[letter]` and then return the memory object. 
 
-*For the uninitiated:* The `and` operator (`&&`) returns the rightmost truthy value or the leftmost falsy value. To illustrate:
+__For the uninitiated:__ The `and` operator (`&&`) returns the rightmost truthy value or the leftmost falsy value. To illustrate:
 
 ```javascript
 "Hello!" && 1; // returns 1

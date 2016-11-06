@@ -2,7 +2,7 @@ section > blockquote {
   quotes: none;
   font-style: italic;
   color: $DARK-PINK;
-  font-size: 2.25rem;
+  font-size: 1.8rem;
   position: relative;
 
   &::before {
@@ -32,3 +32,10 @@ section > blockquote {
     }
   }
 }
+
+section code {
+  color: $CORAL;
+  background-color: $MOCCASIN;
+  padding: 2px 3px;
+  border-radius: 2px;
+} 
