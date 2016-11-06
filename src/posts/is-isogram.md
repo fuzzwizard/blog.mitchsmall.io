@@ -35,14 +35,12 @@ function isIsogram(string) {
   // 'Go through the letters.'
   for (let letter of sting.split('')) {
     if (memory[letter] !== true) { // 'If you haven't seen a letter before...'
-      memory[letter] = true; // '...indicate that you've seen it.'
-    } else { // 'If you happen upon any letter twice...
-      // '...then it's not an isogram.'
-      return false;
+      memory[letter] = true;       // '...indicate that you've seen it.'
+    } else {        // 'If you happen upon any letter twice...
+      return false; // '...then it's not an isogram.'
     }
   }
-  // 'Otherwise, it's an isogram.'
-  return true;
+  return true;  // 'Otherwise, it's an isogram.'
 }
 ``` 
 
