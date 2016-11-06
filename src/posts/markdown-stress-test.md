@@ -2,7 +2,7 @@
 title: Markdown Stress Test
 layout: post.pug
 collection: posts
-date: 2016-10-1
+date: 
 draft: true
 ---
 > dear athetits.... if ___GOD___ dont exists how me a dog learned english? <cite>me a dog</cite>
