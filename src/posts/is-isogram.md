@@ -187,7 +187,7 @@ const isIsogram = string => (
 i=s=>!!s.split('').reject(c=>s.indexOf(c)===s.lastIndexOf(c)).length
 ```
 
-This algorithim collects the string into a key-value map of characters and their frequency, then reduces the keys of that object, checking to see if any of them are greater than 1. And it works in linear time, albiet `O(2n)`.
+This algorithim collects the string into a key-value map of characters and their frequency, then reduces the keys of that object, checking to see if any of them are greater than 1. And it works in linear time, albiet _O_(2n).
 
 Shame about that character count, though.
 
