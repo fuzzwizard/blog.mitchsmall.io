@@ -160,7 +160,7 @@ i = s =>
     .reduce((m, l) =>
       m && m[l] !== true 
         ? m[l] = true && m
-        : false      
+        : false 
     , {});
 ```
 
@@ -174,7 +174,7 @@ i=s=>s.split('').reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
 
 Here's some other answers for your consideration. 
 
-The first is a quadratic time. It collects all the non-unique characters using reject, returns the length of that collection, and then converts the length to a boolean using `!!`. `Boolean()` would work just fine but it would harm our compressionability. Is that a word? Well, it is now.
+The first is a quadratic time. It collects all the non-unique characters using reject, returns the length of that collection, and then converts the length to a boolean using `!!`. `Boolean()` would work just fine but it would harm our compressionability. Is that a word? It is now.
 
 ```javascript
 const isIsogram = string => (

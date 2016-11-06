@@ -2,7 +2,7 @@
 title: Explaining Const and Let
 layout: post.pug
 collection: posts
-date: 2016-11-6
+date: 
 draft: true
 ---
 
