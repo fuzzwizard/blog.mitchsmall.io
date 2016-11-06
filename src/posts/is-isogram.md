@@ -5,7 +5,9 @@ collection: posts
 date: 2016-11-6
 ---
 
-Say you're given a challenge: `determine whether a given word (or string) is an isogram using JavasScript`.
+Say you're given a coding challenge: 
+
+> Determine whether a given word (or string) is an isogram using JavasScript. An isogram is a word without duplicate letters.
 
 In the scope of technical challenges, this is one of the simpler ones im my opinion because the algorithim doesn't stray far from the realm of simple human reasoning:
 
@@ -182,7 +184,7 @@ const isIsogram = string => (
 i=s=>!!s.split('').reject(c=>s.indexOf(c)===s.lastIndexOf(c)).length
 ```
 
-This algorithim collects the string into a key-value map of characters and their frequency, then reduces the keys of that object, checking to see if any of them are greater than 1. And it works in linear time, albient `O(2n)`.
+This algorithim collects the string into a key-value map of characters and their frequency, then reduces the keys of that object, checking to see if any of them are greater than 1. And it works in linear time, albiet `O(2n)`.
 
 Shame about that character count, though.
 
