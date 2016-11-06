@@ -6,8 +6,7 @@ date: 2016-10-4
 draft: true
 ---
 
-> The first draft of anything is shit.
-> <br /><cite>Ernest Hemingway[*](#1)</cite>
+> The first draft of anything is shit. <cite>Ernest Hemingway[*](#1)</cite>
 
 
 ----

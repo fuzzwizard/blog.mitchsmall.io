@@ -1,9 +1,8 @@
 ---
-title: Converting Roman Numerals to a Number (and Back Again)
+title: Roman Numerals To A Number
 layout: post.pug
 collection: posts
-date: 
-draft: true
+date: 2016-11-6
 ---
 
 Roman numerals! What are they good for? Movie sequels, mostly. But also brain teasers.
