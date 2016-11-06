@@ -169,10 +169,9 @@ i=s=>s.split('').reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
 
 Here's some other answers for your consideration. 
 
-The first is a quadratic time 
+The first is a quadratic time. It collects all the non-unique characters using reject, returns the length of that collection, and then converts the length to a boolean using `!!`. `Boolean()` would work just fine but it would harm our compressionability. Is that a word? Well, it is now.
 
 ```javascript
-// O(n^2)
 const isIsogram = string => (
   !!string.split('')
     .reject(char => string.indexOf(char) === string.lastIndexOf(char))
@@ -182,16 +181,21 @@ const isIsogram = string => (
 // And uglifed
 i=s=>!!s.split('').reject(c=>s.indexOf(c)===s.lastIndexOf(c)).length
 ```
+
+This algorithim collects the string into a key-value map of characters and their frequency, then reduces the keys of that object, checking to see if any of them are greater than 1. And it works in linear time, albient `O(2n)`.
+
+Shame about that character count, though.
+
 ```javascript
-// O(n)
 const isIsogram = string => {
   const counts = string.split('').reduce((obj, char) =>
     obj[char] ? obj[char]++ && obj : obj[char] = 1 && obj, {});
 
   return Object.keys(counts).reduce((prev, curr) =>
-    prev || counts[curr] < 1 ? true : false, true);
+    prev || counts[curr] > 1 ? false : true, true);
 };
 
-i=(s,c)=>(c=s.split('').reduce((o,c)=>o[c]?o[c]++&&o:o[c]=1&&o,{}),Object.keys(c).reduce((p,d)=>p||c[d]<1?true:false,true))
+// And uglifed
+i=(s,c)=>(c=s.split('').reduce((o,c)=>o[c]?o[c]++&&o:o[c]=1&&o,{}),Object.keys(c).reduce((p,d)=>p||c[d]>1?false:true,true))
 
 ```
