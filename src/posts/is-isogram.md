@@ -108,7 +108,7 @@ __For the uninitiated:__ Ternary operators follow this form:
 condition ? returned if condition is true : returned if false
 ```
 
-The important part is that the sections to the right of the `?` are `return`ed. That's what makes a ternary statement an expression. And it's what allows us to compress our algorithim further:
+The important part is that the sections to the right of the `?` are returned. That's what makes a ternary statement an expression. And it's what allows us to compress our algorithim further:
 
 ```javascript
 const isIsogram = string => {
