@@ -7,7 +7,7 @@ date: 2016-11-6
 
 Say you're given a coding challenge: 
 
-> Determine whether a given word (or string) is an isogram using JavasScript. An isogram is a word without duplicate letters.
+> Determine whether a given word (or string) is an isogram using JavaScript. An isogram is a word without duplicate letters.
 
 The algorithim I'd use here doesn't stray far from the realm of simple human reasoning:
 
