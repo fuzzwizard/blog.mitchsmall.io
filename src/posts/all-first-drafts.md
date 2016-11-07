@@ -2,7 +2,7 @@
 title: Programming and the Iteration Cycle
 layout: post.pug
 collection: posts
-date: 2016-10-4
+date:
 draft: true
 ---
 

@@ -8,7 +8,13 @@ draft: true
 
 Roman numerals! What are they good for? Movie sequels, mostly. But also brain teasers.
 
-The algorithm for transforming
+Consider some of these roman numerals:
+* 
+*
+*
+*
+*
+*
 
 ```javascript
 const DICTIONARY = {
