@@ -35,7 +35,7 @@ section > blockquote {
 
 section code {
   color: $CORAL;
-  background-color: $MOCCASIN;
+  background-color: lighten($MOCCASIN, 4%);
   padding: 2px 3px;
   border-radius: 2px;
 } 
