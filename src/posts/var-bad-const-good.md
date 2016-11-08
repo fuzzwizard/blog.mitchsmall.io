@@ -23,12 +23,14 @@ Hoising essentially moves the _declaration_ of a variable to the top of it's enc
 
 There is more to hoisting, but this is an effective shorthand for how you, the programmer, will interact with hoisted variables.
 
-What's great is that both `const` and `let` are not hoisted:
+What's great is that both `const` and `let`, though they are technically hoisted, they will throw an error if accessed before they're defined:
 
 ```javascript
 console.log(notHoisted); // Uncaught Reference Error: notHoisted is not defined
 let notHoisted = 'Wowza!';
 ```
+
+[//](MITCH): Review this.
 
 This makes JavaScript more teachable, by making it possible to footnote what was once a strange and somewhat confounding language feature for developers arriving from different languages.
 
