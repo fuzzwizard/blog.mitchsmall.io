@@ -22,7 +22,7 @@ The algorithim I'd use here doesn't stray far from the realm of simple human rea
 So of course one would write something like this:
 
 ```javascript
-i=s=>s.split('').reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
+i=s=>!![...s].reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
 ```
 
 Just kidding. But we can get here!
@@ -61,8 +61,10 @@ Here I've transcribed our algorithim from the previous imperitive implementation
 
 ```javascript
 function isIsogram(string) {
-  return string.split('')
-    .reduce(function(memory, letter) {
+  // The !! converts the return into truth value. The first ! casts it to
+  // a boolean and inverts it, the second inverts it once again. Effectively.
+  // this works like Boolean() with less characters.
+  return !!string.split('').reduce(function(memory, letter) {
       // We have to take into account that `memory` may no longer be the object 
       // we initally passed in. Hence why we check first if its truthy.
       if (memory && memory[letter] !== true) {
@@ -83,8 +85,7 @@ Depending on how you count them, this could be an additional significant line of
 
 ```javascript
 const isIsogram = string => { 
-  return string.split('')
-    .reduce((memory, letter) => {
+  return !![...string].reduce((memory, letter) => {
       if (memory && memory[letter] !== true) {
         memory[letter] = true;
         return memory;
@@ -95,9 +96,9 @@ const isIsogram = string => {
 };
 ```
 
-Swapping in arrow functions!
+Swapping in arrow functions makes sense for less characters, but check out the magic on the return line. The spread operator can render a string into an array, so you never have to use `String.prototype.split` again!
 
-Again, no major changes in speed. But it sets us up for compression once more. Since an arrow function need only have an expression on it's right side, we can can swap out all that if-else madness with...
+Again, no major changes in line count. But it sets us up for compression once more. Since an arrow function need only have an expression on it's right side, we can can swap out all that if-else madness with...
 
 ### Third step: the dreaded ternary 
 
@@ -113,7 +114,7 @@ The important part is that the sections to the right of the `?` are returned. Th
 
 ```javascript
 const isIsogram = string => {
-  return string.split('')
+  return !![...string]
     .reduce((memory, letter) =>
       memory && memory[letter] !== true 
         ? memory[letter] = true && memory
@@ -145,7 +146,7 @@ Since our reduce is effectively written on one line (with whitespace to make it 
 
 ```javascript
 const isIsogram = string => 
-  string.split('')
+  !![...string]
     .reduce((memory, letter) =>
       memory && memory[letter] !== true 
         ? memory[letter] = true && memory
@@ -157,7 +158,7 @@ We can also remove every semblance of good style by dropping our declaration and
 
 ```javascript
 i = s => 
-  s.split('')
+  !![...s]
     .reduce((m, l) =>
       m && m[l] !== true 
         ? m[l] = true && m
@@ -168,24 +169,24 @@ i = s =>
 Once we axe the whitespace and ditch the semicolon, I'd say we're fully compressed!
 
 ```javascript
-i=s=>s.split('').reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
+i=s=>!![...s].reduce((m,l)=>m&&m[l]!==true?m[l]=true&&m:false,{})
 ```
 
 ### Bonus section!
 
 Here's some other answers for your consideration. 
 
-The first is a quadratic time. It collects all the non-unique characters using reject, returns the length of that collection, and then converts the length to a boolean using `!!`. `Boolean()` would work just fine but it would harm our compressionability. Is that a word? It is now.
+The first is a quadratic time. It collects all the non-unique characters using reject, returns the length of that collection, and then converts the length to a boolean using `!!`.
 
 ```javascript
 const isIsogram = string => (
-  !!string.split('')
+  !![...string]
     .reject(char => string.indexOf(char) === string.lastIndexOf(char))
     .length
 );
 
 // And uglifed
-i=s=>!!s.split('').reject(c=>s.indexOf(c)===s.lastIndexOf(c)).length
+i=s=>!![...s].reject(c=>s.indexOf(c)===s.lastIndexOf(c)).length
 ```
 
 This algorithim collects the string into a key-value map of characters and their frequency, then reduces the keys of that object, checking to see if any of them are greater than 1. And it works in linear time, albiet _O_(2n).
@@ -194,7 +195,7 @@ Shame about that character count, though.
 
 ```javascript
 const isIsogram = string => {
-  const counts = string.split('').reduce((obj, char) =>
+  const counts = [...string].reduce((obj, char) =>
     obj[char] ? obj[char]++ && obj : obj[char] = 1 && obj, {});
 
   return Object.keys(counts).reduce((prev, curr) =>
@@ -202,5 +203,5 @@ const isIsogram = string => {
 };
 
 // And uglifed
-i=(s,c)=>(c=s.split('').reduce((o,c)=>o[c]?o[c]++&&o:o[c]=1&&o,{}),Object.keys(c).reduce((p,d)=>p||c[d]>1?false:true,true))
+i=(s,c=[...s].reduce((o,c)=>o[c]?o[c]++&&o:o[c]=1&&o,{}))=>(Object.keys(c).reduce((p,d)=>p||c[d]>1?false:true,true))
 ```
