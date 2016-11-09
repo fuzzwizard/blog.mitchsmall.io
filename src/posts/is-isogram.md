@@ -3,7 +3,6 @@ title: The Isogram Test, Compressed
 layout: post.pug
 collection: posts
 date: 2016-11-6
-draft: true
 ---
 
 Say you're given a coding challenge: 
