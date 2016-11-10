@@ -1,17 +1,19 @@
 ---
-title: Explaining Const and Let
+title: I Do Declare! Explaining Const and Let
 layout: post.pug
 collection: posts
 date: 2016-11-9
 ---
 
-When I was first confronted by the expansive (and frankly overwhelming) featureset of ES6, I saw one change in particular as the most fundamental: `const` and `let`. `var` was no longer the only keyword I needed to know to make my variables real. I was at once struck with a great bafflement and a yearning -- a yearning to know _why_.
+ES6 has a lot of changes. Some of which nice quality-of-life adjustment (iterators, arrow functions), but others seem like a fundamental alteration to the way you're supposed to write the language.
+
+Enter `const` and `let`:
 
 # How they work
 
 ### Hoisting
 
-The big boon both with both keywords is that they're not hoisted. Consider the following:
+The big boon both with both keywords is that they're accessible once hoisted. Consider the following:
 
 ```javascript
 console.log(hoisted); // Logs undefined
@@ -20,18 +22,21 @@ var hoised = 'Wowza!';
 
 Hoising essentially moves the _declaration_ of a variable to the top of it's enclosing scope while leaving the _assignment_ of that variable where you declared it.
 
-There is more to hoisting, but this is an effective shorthand for how you, the programmer, will interact with hoisted variables.
+There is more to hoisting, but this is an effective shorthand for how the programmer will interact with hoisted variables.
 
-What's great is that both `const` and `let` (though they are technically hoisted) they will throw an error if accessed before they're defined:
+Where `const` and `let` take things further is that they will throw an error if accessed between their hoisting and their assignment:
 
 ```javascript
 console.log(onlyKindaHoisted); // Uncaught Reference Error: onlyKindaHoisted is not defined
 let onlyKindaHoisted = 'Wowza!';
+
+console.log(noIReallyMeanIt);
+const noIReallyMeanIt = 'Woah there!'; // Uncaught Reference Error: noIReallyMeanIt is not defined
 ```
 
-By my estimation, this makes JavaScript more teachable to new devs. Hoisting is a stumbling point in many learners initial understanding of JavaScript's scoping, while these new declaration keywords effective lampshade the fact that hoisting even exists.
+By my estimation, this makes JavaScript just slightly more teachable to new devs. Hoisting is a stumbling point in many learners initial understanding of JavaScript's scoping, while these new declaration keywords effective lampshade the fact that hoisting even exists.
 
-For existing JavaScript devs, the gains here are little less concrete. Can you forget about hoisting? Not if you're working with legacy code or eschewing function literals (the `function` keyword has its own flavor of hoisting). However, there are other features present in `const` and `let`.
+For existing JavaScript devs, the gains here are little less concrete. Can you forget about hoisting? Not if you're working with legacy code or eschewing function literals (the `function` keyword has its own flavor of hoisting). However, there are other features present in `const` and `let` that make them appealing.
 
 ### Let There Be Blocks
 
@@ -45,7 +50,7 @@ if (true) {
 console.log(a); // logs 1
 ```
 
-In this case, the `var a` at line 3 is accessing the same variable as declared on line 1. These variables exist in the same namespace because they are not block scoped. However, if one were to use `let`:
+In this case, the `var a` at line 3 is accessing the same variable as declared on line 1. These variables exist in the same namespace because they are part of the same scope. However, if one were to use `let`:
 
 ```javascript
 let a = 0;
