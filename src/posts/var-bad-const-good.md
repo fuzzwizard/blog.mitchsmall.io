@@ -2,8 +2,7 @@
 title: Explaining Const and Let
 layout: post.pug
 collection: posts
-date: 
-draft: true
+date: 2016-11-9
 ---
 
 When I was first confronted by the expansive (and frankly overwhelming) featureset of ES6, I saw one change in particular as the most fundamental: `const` and `let`. `var` was no longer the only keyword I needed to know to make my variables real. I was at once struck with a great bafflement and a yearning -- a yearning to know _why_.
@@ -23,32 +22,20 @@ Hoising essentially moves the _declaration_ of a variable to the top of it's enc
 
 There is more to hoisting, but this is an effective shorthand for how you, the programmer, will interact with hoisted variables.
 
-What's great is that both `const` and `let`, though they are technically hoisted, they will throw an error if accessed before they're defined:
+What's great is that both `const` and `let` (though they are technically hoisted) they will throw an error if accessed before they're defined:
 
 ```javascript
-console.log(notHoisted); // Uncaught Reference Error: notHoisted is not defined
-let notHoisted = 'Wowza!';
+console.log(onlyKindaHoisted); // Uncaught Reference Error: onlyKindaHoisted is not defined
+let onlyKindaHoisted = 'Wowza!';
 ```
 
-[//](MITCH): Review this.
-
-This makes JavaScript more teachable, by making it possible to footnote what was once a strange and somewhat confounding language feature for developers arriving from different languages.
+By my estimation, this makes JavaScript more teachable to new devs. Hoisting is a stumbling point in many learners initial understanding of JavaScript's scoping, while these new declaration keywords effective lampshade the fact that hoisting even exists.
 
 For existing JavaScript devs, the gains here are little less concrete. Can you forget about hoisting? Not if you're working with legacy code or eschewing function literals (the `function` keyword has its own flavor of hoisting). However, there are other features present in `const` and `let`.
 
 ### Let There Be Blocks
 
-`let` seems pretty much interchangable with `var`, sans the hoisting.
-
-```javascript
-console.log(a) // Uncaught Reference Error: a is not defined
-let a = 0;
-
-let b = 0;
-b += 1; // b is now 1
-```
-
-However, there's another key difference: `let` obeys block scoping. Consider the following:
+One key difference: `let` obeys block scoping. Consider the following:
 
 ```javascript
 var a = 0;
@@ -96,10 +83,12 @@ o = {}; // You guessed it: Uncaught TypeError: Assignment to constant variable.
 
 # Which Should I Use?
 
-I've seen some claims floating around that `const` assists with runtime engines that utilize just-in-time compilation, but I haven't stumbled accross any benchmarks that support that its a substantial difference at the end of the day.
+__Opinion time:__ Whichever, so long as it's not `var`.
+
+Now that the dust has mostly settled around ES6's landing (compatibility is [wide-reaching](http://kangax.github.io/compat-table/es6/), both with browsers and the newly minted Node LTS), there's really not a compelling reason I'm aware of to use `var` outside of legacy code. 
+
+I've seen some claims floating around that `const` assists with runtime engines that utilize just-in-time compilation, but I haven't stumbled accross any benchmarks that indicate that the difference is substantial.
 
 Personally, I opt for `const` over `let` for another reason: I'd rather avoid adding more mutable state to my program than necessary. Defaulting to `const` forces me to make a conscious decision as to whether or not a given variable should ever change. 
 
-Granted, the object modification clause confounds that. To which I say: close enough. 👍
-
-That said, now that the dust has mostly settled around ES6's landing (Compatibility is [wide-reaching](http://kangax.github.io/compat-table/es6/), both with browsers and the newly minted Node LTS), I'd recommend embracing these binding keywords -- whichever one you prefer.
+Granted, the object modification clause confounds that. But we can't always get what we want, right?
