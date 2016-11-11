@@ -45,7 +45,7 @@ Other than collections (which organizes my posts and pages into data structures 
 
 ### Templating
 
-For templating, I chose [Pug](pugjs.org), which was frankly a leap of faith. Back when it was called Jade, I'd given it a glance but nothing that would actually mean  that I 'knew' it. As it turns out, though, it's just HTML with the boring stuff removed, so it was no problem writing simple, semantic templates.
+For templating, I chose [Pug](http://www.pugjs.org), which was frankly a leap of faith. Back when it was called Jade, I'd given it a glance but nothing that would actually mean  that I 'knew' it. As it turns out, though, it's just HTML with the boring stuff removed, so it was no problem writing simple, semantic templates.
 
 ### Styling
 
