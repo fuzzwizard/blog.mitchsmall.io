@@ -61,6 +61,6 @@ Babel is entirely superfluous at the given moment, since I've done next to no sc
 
 ### Server, Deployment and Development
 
-I wrote a quick server (shoutout to Jon Deng's [article on the subject](https://medium.com/jondengdevelops/deploy-your-front-end-app-in-20-lines-of-code-24be44f8b51) for helping me realize how easy it is) and an node-wrapped rsync script to deploy it to my ubuntu droplet on [DigitalOcean](https://www.digitalocean.com/).
+I wrote a quick server (shoutout to Jon Deng's [article on the subject](https://medium.com/jondengdevelops/deploy-your-front-end-app-in-20-lines-of-code-24be44f8b51) for helping me realize how easy it is) and a github VPS to deliver it to a Digital Ocean droplet.
 
 I also wrapped the Metalsmith build process in a glob-watcher because `metalsmith-watch` turned out to have a tendency of holding on to long-dead test posts.
