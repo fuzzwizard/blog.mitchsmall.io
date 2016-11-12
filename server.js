@@ -21,14 +21,22 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(DIR));
 });
 
+app.get('/404', (req, res) => {
+  res.sendFile(path.join(DIR, '/404'));
+})
+
 app.get('/:content/:postname', (req, res) => {
   const content = req.params.content;
 
   if (content === 'pages' || content === 'posts') {
     res.sendFile(path.join(DIR, content, req.params.postname));
   } else {
-    res.send(404);
+    res.send(404).redirect('/404');
   }
+});
+
+app.all('/*', (req, res) => {
+  res.redirect('/404');
 });
 
 const listenOn =

@@ -7,11 +7,17 @@ deploy:
 clean:
 	rm -rf public
 
-serve:
+daemon:
 	pm2 start --name blog-server server.js
 
 halt:
 	pm2 stop blog-server
 
-dev: serve
+dev-daemon:
+	pm2 start nodemon --name dev-blog-server -- server.js
+
+dev-halt:
+	pm2 stop dev-blog-server
+
+dev: dev-daemon
 	node build --watch
