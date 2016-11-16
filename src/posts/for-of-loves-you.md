@@ -1,9 +1,0 @@
----
-title: 
-layout: post.pug
-collection: posts
-date: 
-draft: true
----
-
-Please Use For...Of
