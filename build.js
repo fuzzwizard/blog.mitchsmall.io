@@ -18,7 +18,7 @@ const sass         = require('metalsmith-sass');
 const colors  = require('colors');
 const watch   = require('glob-watcher');
 
-const build = (done) => {
+const build = done => {
   console.log(done
     ? `Changes detected.`.yellow
     : `Building...`.yellow);
