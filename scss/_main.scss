@@ -1,6 +1,6 @@
 main {
   padding: 4vh 5vw;
-  background-color: $MOCCASIN;
+  background-color: #FFFFFF;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -10,7 +10,8 @@ main {
     margin: 1rem;
     padding: 1px 1rem;
     background-color: white;
-    box-shadow: 0.5rem 0.5rem 2px darken($MOCCASIN, 8%);
+    border: 1px solid darken($MOCCASIN, 8%);
+    box-shadow: 0.5rem 0.5rem 0px darken($MOCCASIN, 8%);
     max-width: 775px;
     width: 95%;
 

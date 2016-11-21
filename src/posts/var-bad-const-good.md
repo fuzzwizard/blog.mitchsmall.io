@@ -5,7 +5,7 @@ collection: posts
 date: 2016-11-9
 ---
 
-ES6 has a lot of changes. Some of which nice quality-of-life adjustment (iterators, arrow functions), but others seem like a fundamental alteration to the way you're supposed to write the language.
+ES6 has a lot of changes. Some of which are nice, if somewhat minimal, adjustments (iterators, arrow functions), but others seem like a fundamental alteration to the way you're supposed to write the language.
 
 Enter `const` and `let`:
 
