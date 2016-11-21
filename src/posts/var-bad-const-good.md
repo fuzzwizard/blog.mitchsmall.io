@@ -13,7 +13,7 @@ Enter `const` and `let`:
 
 ### Hoisting
 
-The big boon both with both keywords is that they're accessible once hoisted. Consider the following:
+The big boon both with both keywords is that they're inaccessible once hoisted. Consider the following:
 
 ```javascript
 console.log(hoisted); // Logs undefined
